@@ -24,6 +24,6 @@ class Locators:
     img_1fillings = (By.XPATH, "//img[@alt='Мясо бессмертных моллюсков Protostomia']") # картинка 1-ой начинки
     invalid_pass_reg = (By.XPATH, ".//p[@class='input__error text_type_main-default']") # текст ошибки при неправильном пороле при регистрации
     logotip = (By.XPATH, "//div[@class = 'AppHeader_header__logo__2D0X2']") # главный логотип
-    rolls_active = (By.XPATH, "//div[@class='tab_tab_type_current__2BEPc' and .//span[text()='Булки']]") # булки активны
-    sauces_active = (By.XPATH, "//div //div[@class='tab_tab_type_current__2BEPc' and .//span[text()='Соусы']]") # соусы активны
-    fillings_active = (By.XPATH, "//div[@class='tab_tab_type_current__2BEPc' and .//span[text()='Начинки']]") # начинки активны
+    rolls_active = (By.XPATH, "//div[contains(@class, 'tab_tab_type_current__2BEPc') and .//span[text()='Булки']]") # булки активны
+    sauces_active = (By.XPATH, "//div[contains(@class, 'tab_tab_type_current__2BEPc') and .//span[text()='Соусы']]") # соусы активны
+    fillings_active = (By.XPATH, "//div[contains(@class, 'tab_tab_type_current__2BEPc') and .//span[text()='Начинки']]") # начинки активны
