@@ -7,6 +7,7 @@ from url import base_url
 from good_acc import *
 
 class TestEnterFromAccaunt:
+    
     def test_enter_by_button_enter_in_accaunt(self, driver):
         driver_base = MainPage(driver)
         driver_base.open(base_url)

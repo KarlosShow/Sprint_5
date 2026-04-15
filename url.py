@@ -1,2 +1,5 @@
 base_url = "https://stellarburgers.education-services.ru/"
-reg_url = "https://stellarburgers.education-services.ru/register"
+
+REG_ENDPOINT = "/register" # эндпоинты
+
+reg_url = base_url + REG_ENDPOINT

@@ -20,3 +20,4 @@ class TestClickExit:
         driver_base.find(Locators.username_input)
         driver_base.click(Locators.button_logout)
         assert driver_base.get_attribute_value(Locators.email_input, "value") == ""
+        

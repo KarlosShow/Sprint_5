@@ -1,14 +1,11 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 
-class MainPage:
+class BasePage:
 # инициализировать драйвер сохраняя ссылку на драйвер и создать обьект ожидания
     def __init__(self, driver, timeout=5):
         self.driver = driver
         self.wait = WebDriverWait(driver, timeout)
-# открыть страницу указанную
-    def open(self, url):
-        self.driver.get(url)
 # найти элемент по переданному локатору
     def find(self, locator):
         return self.wait.until(expected_conditions.presence_of_element_located(locator))
@@ -29,4 +26,12 @@ class MainPage:
 # поиск видимости элемента
     def element_visible(self, locator):
         return self.wait.until(expected_conditions.visibility_of_element_located(locator))
-    
+     # Прокрутить до элемента (новый метод для PO)
+    def scroll_to_element(self, locator):
+        element = self.find(locator)
+        self.driver.execute_script("arguments[0].scrollIntoView();", element)
+
+# Теперь MainPage наследуется от BasePage, и мы убираем прямое обращение к драйверу.
+class MainPage(BasePage):
+    def open(self, url):
+        self.driver.get(url)
