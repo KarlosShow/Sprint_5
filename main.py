@@ -3,7 +3,7 @@ from selenium.webdriver.support import expected_conditions
 
 class BasePage:
 # инициализировать драйвер сохраняя ссылку на драйвер и создать обьект ожидания
-    def __init__(self, driver, timeout=5):
+    def __init__(self, driver, timeout=10):
         self.driver = driver
         self.wait = WebDriverWait(driver, timeout)
 # найти элемент по переданному локатору

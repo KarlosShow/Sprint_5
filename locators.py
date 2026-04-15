@@ -3,10 +3,10 @@ from selenium.webdriver.common.by import By
 class Locators:
     button_personal_accaunt = (By.XPATH, "//a[@class ='AppHeader_header__linkText__3q_va ml-2']") #кнопка личный кабинет
     t_button_checkin = (By.XPATH, "//a[@class = 'Auth_link__1fOlj']") # текст кнопка зарегестрироваться
-    username_input =  (By.XPATH, ".//label[text()='Имя']/..//input") # поле имя
-    email_input =  (By.XPATH, ".//label[text()='Email']/..//input") # поле почта
+    username_input = (By.XPATH, ".//label[text()='Имя']/..//input") # поле имя
+    email_input = (By.XPATH, ".//label[text()='Email']/..//input") # поле почта
     password_input = (By.XPATH, ".//label[text()='Пароль']/..//input") # поле пароль
-    button_checkinn = (By.XPATH, "//button[@class = 'button_button__33qZ0 button_button_type_primary__1O7Bx button_button_size_medium__3zxIa']") #кнопка зарегестрироваться
+    button_checkinn = (By.XPATH, ".//button[text()='Зарегистрироваться']") #кнопка зарегестрироваться
     button_login = (By.XPATH, "//button[text()='Войти']") # войти в форме
     button_login_account = (By.XPATH, "//button[text()='Войти в аккаунт']") # войти на главной странице
     button_logout = (By.XPATH, "//button[text()='Выход']") # выйти
