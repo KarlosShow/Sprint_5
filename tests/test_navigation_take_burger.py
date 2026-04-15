@@ -13,31 +13,47 @@ class TestNavigationInConstructor:
     def test_navigation_in_constructor_by_elements(self, driver, image):
         driver_base = MainPage(driver)
         driver_base.open(base_url)
-        driver_base.find(Locators.text_get_burger)
-        element_img = driver_base.element_visible(image)
-        assert element_img.is_displayed()
+        # Проверяем, что мы находимся в конструкторе
+        assert driver_base.element_visible(Locators.text_get_burger), "Элемент 'Соберите бургер' не виден — конструктор не загружен"
+
+        # Проверяем видимость нужного изображения
+        assert driver_base.element_visible(image), f"Изображение {image} не видно в конструкторе"
 
     def test_navigation_in_constructor_by_section_rolls(self, driver):
         driver_base = MainPage(driver)
         driver_base.open(base_url)
-        driver_base.find(Locators.text_get_burger)
+        # Убеждаемся, что открыты страницы конструктора
+        assert driver_base.element_visible(Locators.text_get_burger), "Конструктор не загружен — элемент 'Соберите бургер' не виден"
+
+        # Переходим к разделу соусов, чтобы попасть в конструктор
         driver_base.click(Locators.text_sauces)
+
+        # Переходим в раздел булочек
         driver_base.click(Locators.text_rools)
-        active_element = driver_base.element_visible(Locators.rolls_active)
-        assert active_element is not None, "Раздел не выбран"
+
+        # Проверяем, что раздел булочек выбран
+        assert driver_base.element_visible(Locators.rolls_active), "Раздел 'Булочки' не выбран"
 
     def test_navigation_in_constructor_by_section_sauces(self, driver):
         driver_base = MainPage(driver)
         driver_base.open(base_url)
-        driver_base.find(Locators.text_get_burger)
+        # Убеждаемся, что открыты страницы конструктора
+        assert driver_base.element_visible(Locators.text_get_burger), "Конструктор не загружен — элемент 'Соберите бургер' не виден"
+
+        # Переходим к разделу соусов
         driver_base.click(Locators.text_sauces)
-        active_element = driver_base.element_visible(Locators.sauces_active)
-        assert active_element is not None, "Раздел не выбран"
+
+        # Проверяем, что раздел соусов выбран
+        assert driver_base.element_visible(Locators.sauces_active), "Раздел 'Соусы' не выбран"
 
     def test_navigation_in_constructor_by_section_fillings(self, driver):
         driver_base = MainPage(driver)
         driver_base.open(base_url)
-        driver_base.find(Locators.text_get_burger)
+        # Убеждаемся, что открыты страницы конструктора
+        assert driver_base.element_visible(Locators.text_get_burger), "Конструктор не загружен — элемент 'Соберите бургер' не виден"
+
+        # Переходим к разделу начинок
         driver_base.click(Locators.text_fillings)
-        active_element = driver_base.element_visible(Locators.fillings_active)
-        assert active_element is not None, "Раздел не выбран"
+
+        # Проверяем, что раздел начинок выбран
+        assert driver_base.element_visible(Locators.fillings_active), "Раздел 'Начинки' не выбран"
