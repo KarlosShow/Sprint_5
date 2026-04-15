@@ -30,8 +30,14 @@ class BasePage:
     def scroll_to_element(self, locator):
         element = self.find(locator)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
+    def has_class(self, locator):
+    # Проверяет, есть ли у элемента указанный класс
+        element = self.find(locator)
+        return locator[1] in element.get_attribute('class').split()
+
 
 # Теперь MainPage наследуется от BasePage, и мы убираем прямое обращение к драйверу.
 class MainPage(BasePage):
     def open(self, url):
         self.driver.get(url)
+    

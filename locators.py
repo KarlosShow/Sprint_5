@@ -28,3 +28,6 @@ class Locators:
     sauces_active = (By.XPATH, "//div[contains(@class, 'tab_tab_type_current__2BEPc') and .//span[text()='Соусы']]") # соусы активны
     fillings_active = (By.XPATH, "//div[contains(@class, 'tab_tab_type_current__2BEPc') and .//span[text()='Начинки']]") # начинки активны
     displayed_username = By.CSS_SELECTOR, ".text.input__textfield.text_type_main-default.input__textfield-disabled"  # поиск по классу
+    tab_bread = (By.XPATH, "//div[contains(@class, 'tab_tab__1SPyG') and .//span[text()='Булки']]")
+    tab_sauces = (By.XPATH, "//div[contains(@class, 'tab_tab__1SPyG') and .//span[text()='Соусы']]")
+    tab_fillings = (By.XPATH, "//div[contains(@class, 'tab_tab__1SPyG') and .//span[text()='Начинки']]")
