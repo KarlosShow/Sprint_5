@@ -32,7 +32,7 @@ class TestNavigationInConstructor:
         driver_base.click(Locators.text_rools)
 
         # Проверяем, что раздел булочек выбран
-        assert driver_base.element_visible(Locators.rolls_active), "Раздел 'Булочки' не выбран"
+        assert driver_base.has_class(Locators.rolls_active), "Таб 'Булки' не стал активным"
 
     def test_navigation_in_constructor_by_section_sauces(self, driver):
         driver_base = MainPage(driver)
@@ -44,7 +44,8 @@ class TestNavigationInConstructor:
         driver_base.click(Locators.text_sauces)
 
         # Проверяем, что раздел соусов выбран
-        assert driver_base.element_visible(Locators.sauces_active), "Раздел 'Соусы' не выбран"
+        assert driver_base.has_class(Locators.sauces_active), "Таб 'Соусы' не стал активным"
+ 
 
     def test_navigation_in_constructor_by_section_fillings(self, driver):
         driver_base = MainPage(driver)
@@ -56,4 +57,5 @@ class TestNavigationInConstructor:
         driver_base.click(Locators.text_fillings)
 
         # Проверяем, что раздел начинок выбран
-        assert driver_base.element_visible(Locators.fillings_active), "Раздел 'Начинки' не выбран"
+        assert driver_base.has_class(Locators.fillings_active), "Таб 'Начинки' не стал активным"
+   

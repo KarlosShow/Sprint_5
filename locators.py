@@ -31,3 +31,8 @@ class Locators:
     tab_bread = (By.XPATH, "//div[contains(@class, 'tab_tab__1SPyG') and .//span[text()='Булки']]")
     tab_sauces = (By.XPATH, "//div[contains(@class, 'tab_tab__1SPyG') and .//span[text()='Соусы']]")
     tab_fillings = (By.XPATH, "//div[contains(@class, 'tab_tab__1SPyG') and .//span[text()='Начинки']]")
+    # Локаторы для проверки активного состояния
+    rolls_active = (By.CSS_SELECTOR, ".tab_tab__1SPyG.tab_tab_type_current__2BEPc:has(span:contains('Булки'))")
+    sauces_active = (By.CSS_SELECTOR, ".tab_tab__1SPyG.tab_tab_type_current__2BEPc:has(span:contains('Соусы'))")
+    fillings_active = (By.CSS_SELECTOR, ".tab_tab__1SPyG.tab_tab_type_current__2BEPc:has(span:contains('Начинки'))")
+ 
