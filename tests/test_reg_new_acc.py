@@ -29,7 +29,7 @@ class TestRegistration:
         assert driver_base.element_visible(Locators.username_input), "Поле имени пользователя не видно в ЛК"
         driver_base.find(Locators.username_input)  # поиск для взаимодействия
         # Проверяем результат регистрации
-        assert driver_base.get_attribute_value(Locators.username_input, "value") == new_name, "Имя пользователя не соответствует ожидаемому"
+        assert driver_base.get_text(Locators.displayed_username) == new_name, "Имя пользователя не отображается в профиле"
 
     def test_invalid_password_by_registration(self, driver, rdata_for_badpass_reg):
         driver_base = MainPage(driver)
