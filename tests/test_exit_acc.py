@@ -25,5 +25,5 @@ class TestClickExit:
         # Выходим из аккаунта
         driver_base.click(Locators.button_logout)
         # Проверяем результат выхода — поле email должно быть пустым
-        assert driver_base.get_attribute_value(Locators.email_input, "value") == "", "Поле email не очистилось после выход
+        assert driver_base.get_attribute_value(Locators.email_input, "value") == "", "Поле email не очистилось после выхода"
         
