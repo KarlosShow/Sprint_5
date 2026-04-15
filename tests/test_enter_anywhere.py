@@ -14,8 +14,8 @@ class TestEnterFromAccaunt:
         # кликаем на кнопку войти в аккаунт
         driver_base.click(Locators.button_login_account)
         # Вводим данные и логинимся
-        driver_base.type(Locators.email_input, r_email)
-        driver_base.type(Locators.password_input, r_pass)
+        driver_base.type(Locators.email_input, good_email)
+        driver_base.type(Locators.password_input, good_pass)
         driver_base.click(Locators.button_login)
         # 3. Проверяем видимость кнопки «Личный кабинет» прямо в ассерте
         assert driver_base.element_visible(Locators.text_personal_accaunt), "Кнопка 'Личный кабинет' не видна после логина"
@@ -26,7 +26,7 @@ class TestEnterFromAccaunt:
         driver_base.find(Locators.username_input)  # поиск для взаимодействия
 
         # Проверяем, что имя пользователя отображается корректно
-        assert driver_base.get_attribute_value(Locators.username_input, "value") == r_name, "Имя пользователя не соответствует ожидаемому"
+        assert driver_base.get_attribute_value(Locators.username_input, "value") == good_name, "Имя пользователя не соответствует ожидаемому"
 
     def test_enter_by_button_in_personal_accaunt(self, driver):
         driver_base = MainPage(driver)
@@ -39,8 +39,8 @@ class TestEnterFromAccaunt:
         assert driver_base.element_visible(Locators.button_login), "Кнопка 'Войти' не видна после перехода в ЛК"
 
         # Выполняем вход
-        driver_base.type(Locators.email_input, r_email)
-        driver_base.type(Locators.password_input, r_pass)
+        driver_base.type(Locators.email_input, good_email)
+        driver_base.type(Locators.password_input, good_pass)
         driver_base.click(Locators.button_login)
 
         # Переходим в личный кабинет и проверяем элементы
@@ -50,7 +50,7 @@ class TestEnterFromAccaunt:
         driver_base.find(Locators.username_input)  # поиск для взаимодействия
 
         # Проверяем имя пользователя
-        assert driver_base.get_attribute_value(Locators.username_input, "value") == r_name, "Имя пользователя не соответствует ожидаемому"
+        assert driver_base.get_attribute_value(Locators.username_input, "value") == good_name, "Имя пользователя не соответствует ожидаемому"
  
     
     def test_enter_by_button_in_registration_form(self, driver):
@@ -77,8 +77,8 @@ class TestEnterFromAccaunt:
 
         # Выполняем вход
         assert driver_base.element_visible(Locators.button_login), "Кнопка 'Войти' не видна в форме входа"
-        driver_base.type(Locators.email_input, r_email)
-        driver_base.type(Locators.password_input, r_pass)
+        driver_base.type(Locators.email_input, good_email)
+        driver_base.type(Locators.password_input, good_pass)
         driver_base.click(Locators.button_login)
 
         # Переходим в личный кабинет и проверяем элементы
@@ -88,4 +88,4 @@ class TestEnterFromAccaunt:
         driver_base.find(Locators.username_input)  # поиск для взаимодействия
 
         # Проверяем имя пользователя
-        assert driver_base.get_attribute_value(Locators.username_input, "value") == r_name, "Имя пользователя не соответствует ожидаемому"
+        assert driver_base.get_attribute_value(Locators.username_input, "value") == good_name, "Имя пользователя не соответствует ожидаемому"
