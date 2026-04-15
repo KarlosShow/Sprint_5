@@ -11,13 +11,19 @@ class TestClickExit:
     def test_exit_from_accaunt(self, driver):
         driver_base = MainPage(driver)
         driver_base.open(base_url)
+        # Логинимся
         driver_base.click(Locators.button_login_account)
         driver_base.type(Locators.email_input, r_email)
         driver_base.type(Locators.password_input, r_pass)
         driver_base.click(Locators.button_login)
-        driver_base.find(Locators.text_personal_accaunt)
+        # Проверяем, что кнопка «Личный кабинет» видна — прямо в ассерте
+        assert driver_base.element_visible(Locators.text_personal_accaunt), "Кнопка 'Личный кабинет' не видна после логина"
         driver_base.click(Locators.text_personal_accaunt)
-        driver_base.find(Locators.username_input)
+        # Проверяем, что поле имени пользователя видно — тоже в ассерте
+        assert driver_base.element_visible(Locators.username_input), "Поле имени пользователя не видно в ЛК"
+        driver_base.find(Locators.username_input)  # поиск для взаимодействия
+        # Выходим из аккаунта
         driver_base.click(Locators.button_logout)
-        assert driver_base.get_attribute_value(Locators.email_input, "value") == ""
+        # Проверяем результат выхода — поле email должно быть пустым
+        assert driver_base.get_attribute_value(Locators.email_input, "value") == "", "Поле email не очистилось после выход
         
