@@ -24,24 +24,14 @@ class Locators:
     img_1fillings = (By.XPATH, "//img[@alt='Мясо бессмертных моллюсков Protostomia']") # картинка 1-ой начинки
     invalid_pass_reg = (By.XPATH, ".//p[@class='input__error text_type_main-default']") # текст ошибки при неправильном пороле при регистрации
     logotip = (By.XPATH, "//div[@class = 'AppHeader_header__logo__2D0X2']") # главный логотип
-    rolls_active = (By.XPATH, "//div[contains(@class, 'tab_tab_type_current__2BEPc') and .//span[text()='Булки']]") # булки активны
-    sauces_active = (By.XPATH, "//div[contains(@class, 'tab_tab_type_current__2BEPc') and .//span[text()='Соусы']]") # соусы активны
-    fillings_active = (By.XPATH, "//div[contains(@class, 'tab_tab_type_current__2BEPc') and .//span[text()='Начинки']]") # начинки активны
-    displayed_username1 = (By.XPATH, "//input[@name='Name']")
+    
+    rolls_active = (By.XPATH, "//div[contains(@class, 'tab') and contains(@class, 'current') and .//span[text()='Булки']]")  # активный таб с названием «Булки».
+    sauces_active = (By.XPATH, "//div[contains(@class, 'tab') and contains(@class, 'current') and .//span[text()='Соусы']]") # 
+    fillings_active = (By.XPATH, "//div[contains(@class, 'tab') and contains(@class, 'current') and .//span[text()='Начинки']]") # 
+
     displayed_username = (By.XPATH, "//input[@name='Name' and contains(@class, 'input__textfield-disabled')]")
-  # поиск по классу
-    tab_bread = locator = (By.XPATH, "//span[text()='Булки']")
-
-    tab_sauces = locator = (By.XPATH, "//span[text()='Соусы']")
-
-    tab_fillings = locator = (By.XPATH, "//span[text()='Начинки']")
-
+    # поиск по классу
     # Локаторы для проверки активного состояния
-    rolls_active = (By.XPATH, "//div[@class='tab_tab__1SPyG tab_tab_type_current__2BEPc']//span[text()='Булки']")
 
-
-    sauces_active = (By.XPATH, "//div[@class='tab_tab__1SPyG tab_tab_type_current__2BEPc']//span[text()='Соусы']")
-
-    fillings_active =  (By.XPATH, "//div[@class='tab_tab__1SPyG tab_tab_type_current__2BEPc']//span[text()='Начинки']")
 
  
