@@ -27,12 +27,21 @@ class Locators:
     rolls_active = (By.XPATH, "//div[contains(@class, 'tab_tab_type_current__2BEPc') and .//span[text()='Булки']]") # булки активны
     sauces_active = (By.XPATH, "//div[contains(@class, 'tab_tab_type_current__2BEPc') and .//span[text()='Соусы']]") # соусы активны
     fillings_active = (By.XPATH, "//div[contains(@class, 'tab_tab_type_current__2BEPc') and .//span[text()='Начинки']]") # начинки активны
-    displayed_username = By.CSS_SELECTOR, ".text.input__textfield.text_type_main-default.input__textfield-disabled"  # поиск по классу
-    tab_bread = (By.XPATH, "//div[contains(@class, 'tab_tab__1SPyG') and .//span[text()='Булки']]")
-    tab_sauces = (By.XPATH, "//div[contains(@class, 'tab_tab__1SPyG') and .//span[text()='Соусы']]")
-    tab_fillings = (By.XPATH, "//div[contains(@class, 'tab_tab__1SPyG') and .//span[text()='Начинки']]")
+    displayed_username1 = (By.XPATH, "//input[@name='Name']")
+    displayed_username = (By.XPATH, "//input[@name='Name' and contains(@class, 'input__textfield-disabled')]")
+  # поиск по классу
+    tab_bread = locator = (By.XPATH, "//span[text()='Булки']")
+
+    tab_sauces = locator = (By.XPATH, "//span[text()='Соусы']")
+
+    tab_fillings = locator = (By.XPATH, "//span[text()='Начинки']")
+
     # Локаторы для проверки активного состояния
-    rolls_active = (By.CSS_SELECTOR, ".tab_tab__1SPyG.tab_tab_type_current__2BEPc:has(span:contains('Булки'))")
-    sauces_active = (By.CSS_SELECTOR, ".tab_tab__1SPyG.tab_tab_type_current__2BEPc:has(span:contains('Соусы'))")
-    fillings_active = (By.CSS_SELECTOR, ".tab_tab__1SPyG.tab_tab_type_current__2BEPc:has(span:contains('Начинки'))")
+    rolls_active = (By.XPATH, "//div[@class='tab_tab__1SPyG tab_tab_type_current__2BEPc']//span[text()='Булки']")
+
+
+    sauces_active = (By.XPATH, "//div[@class='tab_tab__1SPyG tab_tab_type_current__2BEPc']//span[text()='Соусы']")
+
+    fillings_active =  (By.XPATH, "//div[@class='tab_tab__1SPyG tab_tab_type_current__2BEPc']//span[text()='Начинки']")
+
  

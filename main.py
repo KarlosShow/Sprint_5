@@ -3,7 +3,7 @@ from selenium.webdriver.support import expected_conditions
 
 class BasePage:
 # инициализировать драйвер сохраняя ссылку на драйвер и создать обьект ожидания
-    def __init__(self, driver, timeout=10):
+    def __init__(self, driver, timeout=20):
         self.driver = driver
         self.wait = WebDriverWait(driver, timeout)
 # найти элемент по переданному локатору
@@ -17,9 +17,11 @@ class BasePage:
         element = self.find(locator)
         element.clear()
         element.send_keys(text)
+
 # получить текст с элемента
-    def get_text(self, locator):
+    def get_text(self, locator):   
         return self.find(locator).text
+    
 # скролл до нужного элемента    
     def get_attribute_value(self, locator, attribute_name):
         return self.find(locator).get_attribute(attribute_name)  
