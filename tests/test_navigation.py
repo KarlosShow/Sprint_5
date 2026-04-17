@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/..')
 import time
-from main import MainPage
+from pages.main_page import MainPage
 from locators import Locators
 from url import base_url
 import pytest
