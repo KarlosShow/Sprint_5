@@ -17,18 +17,16 @@ class BasePage:
         element = self.find(locator)
         element.clear()
         element.send_keys(text)
-
 # получить текст с элемента
     def get_text(self, locator):   
         return self.find(locator).text
-    
 # скролл до нужного элемента    
     def get_attribute_value(self, locator, attribute_name):
         return self.find(locator).get_attribute(attribute_name)  
 # поиск видимости элемента
     def element_visible(self, locator):
         return self.wait.until(expected_conditions.visibility_of_element_located(locator))
-     # Прокрутить до элемента (новый метод для PO)
+# Прокрутить до элемента (новый метод для PO)
     def scroll_to_element(self, locator):
         element = self.find(locator)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
@@ -37,12 +35,3 @@ class BasePage:
         element = self.find(locator)
         classes = element.get_attribute('class').split()
         return locator[1] in classes  # точное совпадение класса
-
-
-
-
-# Теперь MainPage наследуется от BasePage, и мы убираем прямое обращение к драйверу.
-class MainPage(BasePage):
-    def open(self, url):
-        self.driver.get(url)
-    
