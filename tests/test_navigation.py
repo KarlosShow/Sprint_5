@@ -12,17 +12,23 @@ import pytest
 class TestNavigationInConstructor:
     
     @pytest.mark.parametrize('tab_locator', config.tabs)
-    def test_tab_activation_class(self, driver, tab_locator):
+    def test_tab_activation_class(self, driver, tab_locator, tab_to_active_class):
         driver_base = MainPage(driver)
         driver_base.open(base_url)
-        # Проверяем, что конструктор загружен
-        assert driver_base.element_visible(Locators.text_get_burger), "Элемент 'Соберите бургер' не виден — конструктор не загружен"
+          # Находим и кликаем по табу
+        tab = driver_base.find(tab_locator)
+        tab.click()
+
+    # Ждём появления активного таба
+        assert driver_base.element_visible(tab_to_active_class), f"Таб {tab_locator} не стал активным"
+        #assert driver_base.element_visible(Locators.text_get_burger), "Элемент 'Соберите бургер' не виден — конструктор не загружен"
         # Кликаем на таб
-        driver_base.click(tab_locator)
+        #driver_base.click(tab_locator)
+        #time.sleep(1)
         # Получаем локатор для активного класса этого таба
-        active_class_locator = config.tab_to_active_class[tab_locator]
+       # active_class_locator = config.tab_to_active_class[tab_locator]
         # Проверяем, появился ли класс активности
-        assert driver_base.has_class(active_class_locator), f"Класс активного таба не появился для {tab_locator}"
+        #assert driver_base.has_class(active_class_locator), f"Класс активного таба не появился для {tab_locator}"
     
     def test_navigation_in_constructor_by_section_rolls(self, driver):
         driver_base = MainPage(driver)
