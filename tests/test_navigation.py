@@ -4,51 +4,24 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/..')
 import time
 from pages.main_page import MainPage
 from locators import Locators
+from config import tabs, tab_to_active_class
 from url import base_url
 import pytest
 
 class TestNavigationInConstructor:
-    # Список табов для проверки — заменяем изображения на табы
-    tabs = [
-        Locators.text_sauces,
-        Locators.text_rools,
-        Locators.text_fillings
-    ]
-
-    # Сопоставляем табы с их активными классами
-    tab_to_active_class = {
-        Locators.text_sauces: Locators.sauces_active,
-        Locators.text_rools: Locators.rolls_active,  # исправляем возможную опечатку '1rools' → 'rools'
-        Locators.text_fillings: Locators.fillings_active
-    }
 
     @pytest.mark.parametrize('tab_locator', tabs)
     def test_tab_activation_class(self, driver, tab_locator):
         driver_base = MainPage(driver)
         driver_base.open(base_url)
-
         # Проверяем, что конструктор загружен
         assert driver_base.element_visible(Locators.text_get_burger), "Элемент 'Соберите бургер' не виден — конструктор не загружен"
-
         # Кликаем на таб
         driver_base.click(tab_locator)
-
         # Получаем локатор для активного класса этого таба
         active_class_locator = self.tab_to_active_class[tab_locator]
-
         # Проверяем, появился ли класс активности
         assert driver_base.has_class(active_class_locator), f"Класс активного таба не появился для {tab_locator}"
-#class TestNavigationInConstructor:
-#    images = [Locators.img_1rools, Locators.img_1fillings, Locators.img_1fillings]
-
-#    @pytest.mark.parametrize('image', images)
- #   def test_navigation_in_constructor_by_elements(self, driver, image):
- #       driver_base = MainPage(driver)
-  #      driver_base.open(base_url)
- #       # Проверяем, что мы находимся в конструкторе
-  #      assert driver_base.element_visible(Locators.text_get_burger), "Элемент 'Соберите бургер' не виден — конструктор не загружен"
-  #      # Проверяем видимость нужного изображения
-  #      assert driver_base.element_visible(image), f"Изображение {image} не видно в конструкторе"
     
     def test_navigation_in_constructor_by_section_rolls(self, driver):
         driver_base = MainPage(driver)
