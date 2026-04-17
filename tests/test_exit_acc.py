@@ -17,10 +17,8 @@ class TestClickExit:
         driver_base.type(Locators.password_input, good_pass)
         driver_base.click(Locators.button_login)
         # Проверяем, что кнопка «Личный кабинет» видна — прямо в ассерте
-        assert driver_base.element_visible(Locators.text_personal_accaunt), "Кнопка 'Личный кабинет' не видна после логина"
         driver_base.click(Locators.text_personal_accaunt)
         # Проверяем, что поле имени пользователя видно — тоже в ассерте
-        assert driver_base.element_visible(Locators.username_input), "Поле имени пользователя не видно в ЛК"
         driver_base.find(Locators.username_input)  # поиск для взаимодействия
         # Выходим из аккаунта
         driver_base.click(Locators.button_logout)

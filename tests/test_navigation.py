@@ -3,14 +3,15 @@ import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/..')
 import time
 from pages.main_page import MainPage
+from pages.base_page import BasePage
 from locators import Locators
-from config import tabs, tab_to_active_class
+import config
 from url import base_url
 import pytest
 
 class TestNavigationInConstructor:
-
-    @pytest.mark.parametrize('tab_locator', tabs)
+    
+    @pytest.mark.parametrize('tab_locator', config.tabs)
     def test_tab_activation_class(self, driver, tab_locator):
         driver_base = MainPage(driver)
         driver_base.open(base_url)
@@ -19,7 +20,7 @@ class TestNavigationInConstructor:
         # Кликаем на таб
         driver_base.click(tab_locator)
         # Получаем локатор для активного класса этого таба
-        active_class_locator = self.tab_to_active_class[tab_locator]
+        active_class_locator = config.tab_to_active_class[tab_locator]
         # Проверяем, появился ли класс активности
         assert driver_base.has_class(active_class_locator), f"Класс активного таба не появился для {tab_locator}"
     
