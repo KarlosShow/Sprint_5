@@ -3,6 +3,7 @@ import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/..')
 from pages.main_page import MainPage
 from locators import Locators
+from helpers import rdata_for_good_reg, rdata_for_badpass_reg
 from url import *
 from good_acc import *
 
