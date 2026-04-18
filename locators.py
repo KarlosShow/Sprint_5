@@ -25,12 +25,12 @@ class Locators:
     invalid_pass_reg = (By.XPATH, ".//p[@class='input__error text_type_main-default']") # текст ошибки при неправильном пороле при регистрации
     logotip = (By.XPATH, "//div[@class = 'AppHeader_header__logo__2D0X2']") # главный логотип
     
-    #rolls_active = (By.XPATH, "//div[contains(@class, 'tab') and contains(@class, 'current') and .//span[text()='Булки']]")  # активный таб с названием «Булки».
-    #sauces_active = (By.XPATH, "//div[contains(@class, 'tab') and contains(@class, 'current') and .//span[text()='Соусы']]") # 
-    #fillings_active = (By.XPATH, "//div[contains(@class, 'tab') and contains(@class, 'current') and .//span[text()='Начинки']]") # 
-    rolls_active = (By.XPATH, "//div[contains(@class, 'current') and .//span[text()='Булки']]")  # активный таб с названием «Булки».
-    sauces_active = (By.XPATH, "//div[contains(@class, 'current') and .//span[text()='Соусы']]") # 
-    fillings_active = (By.XPATH, "//[contains(@class, 'current') and .//span[text()='Начинки']]") # 
+    rolls_active = (By.XPATH, "//div[contains(@class, 'tab') and contains(@class, 'current') and .//span[text()='Булки']]")  # активный таб с названием «Булки».
+    sauces_active = (By.XPATH, "//div[contains(@class, 'tab') and contains(@class, 'current') and .//span[text()='Соусы']]") # 
+    fillings_active = (By.XPATH, "//div[contains(@class, 'tab') and contains(@class, 'current') and .//span[text()='Начинки']]") # 
+    #rolls_active = (By.XPATH, "//div[contains(@class, 'current') and .//span[text()='Булки']]")  # активный таб с названием «Булки».
+    #sauces_active = (By.XPATH, "//div[contains(@class, 'current') and .//span[text()='Соусы']]") # 
+    #fillings_active = (By.XPATH, "//[contains(@class, 'current') and .//span[text()='Начинки']]") # 
     displayed_username = (By.XPATH, "//input[@name='Name' and contains(@class, 'input__textfield-disabled')]")
     # поиск по классу
     # Локаторы для проверки активного состояния
