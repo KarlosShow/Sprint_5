@@ -19,8 +19,8 @@ class TestNavigationInConstructor:
         driver_base.element_visible(Locators.text_get_burger)
         driver_base.click(tab_locator)
         active_class_locator = config.tab_to_active_class[tab_locator]
-        # Ищет элемент — если не найдёт, тест упадёт
-        driver_base.find(active_class_locator)
+        # проверяем, что элемент активного таба найден
+        assert driver_base.find(active_class_locator), f"Таб {tab_locator} не стал активным"
 
     # Отдельный тест для «Булок»
     def test_rolls_tab_reactivation(self, driver):
@@ -30,8 +30,8 @@ class TestNavigationInConstructor:
         driver_base.click(config.tabs[1])  # Предполагаем, что это «Соусы»
         # Затем кликаем обратно на «Булки»
         driver_base.click(Locators.text_rools)
-        # Ищем элемент «активных Булок» — если не найдётся, тест упадёт
-        driver_base.find(config.tab_to_active_class[Locators.text_rools])
+        # проверяем, что «Булки» стали активными
+        assert driver_base.find(config.tab_to_active_class[Locators.text_rools]), "Таб 'Булки' не стал активным"
 
     def test_navigation_in_constructor_by_section_rolls(self, driver):
         driver_base = MainPage(driver)
