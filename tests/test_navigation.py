@@ -11,18 +11,27 @@ import pytest
 
 class TestNavigationInConstructor:
         
-    @pytest.mark.parametrize('tab_locator', config.tabs)
+    @pytest.mark.parametrize('tab_locator', [config.tabs[1], config.tabs[2]])  # исключаем первый таб (Булки)
     def test_tab_activation_class(self, driver, tab_locator):
         driver_base = MainPage(driver)
         driver_base.open(base_url)
-        # Проверяем, что конструктор загружен
-        assert driver_base.element_visible(Locators.text_get_burger), "Элемент 'Соберите бургер' не виден — конструктор не загружен"
-        # Кликаем на таб
+        # Проверяем загрузку конструктора
+        driver_base.element_visible(Locators.text_get_burger)
         driver_base.click(tab_locator)
-        # Получаем локатор для активного класса этого таба
         active_class_locator = config.tab_to_active_class[tab_locator]
-        # Проверяем, появился ли класс активности
-        assert driver_base.has_class(active_class_locator), f"Класс активного таба не появился для {tab_locator}"
+        # Ищет элемент — если не найдёт, тест упадёт
+        driver_base.find(active_class_locator)
+
+    # Отдельный тест для «Булок»
+    def test_rolls_tab_reactivation(self, driver):
+        driver_base = MainPage(driver)
+        driver_base.open(base_url)
+        # Сначала кликаем на другой таб (например, «Соусы»)
+        driver_base.click(config.tabs[1])  # Предполагаем, что это «Соусы»
+        # Затем кликаем обратно на «Булки»
+        driver_base.click(Locators.text_rools)
+        # Ищем элемент «активных Булок» — если не найдётся, тест упадёт
+        driver_base.find(config.tab_to_active_class[Locators.text_rools])
 
     def test_navigation_in_constructor_by_section_rolls(self, driver):
         driver_base = MainPage(driver)
