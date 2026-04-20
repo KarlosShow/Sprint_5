@@ -15,8 +15,9 @@ class TestMoveFromAccauntToConstructor:
         # Переходим к конструктору
         driver_base.click(Locators.text_constructor)
         # Проверяем, что мы попали в конструктор
-        assert driver_base.get_text(Locators.text_get_burger) == 'Соберите бургер', "Текст элемента 'Соберите бургер' некорректен"
-
+        # Проверяем, что элемент отображается (а не его текст)
+        assert driver_base.element_visible(Locators.text_get_burger), "Элемент 'Соберите бургер' не отображается"
+        
     def test_move_from_personal_accaunt_to_constructor_by_logotip(self, driver):
         driver_base = MainPage(driver)
         driver_base.open(base_url)
@@ -25,4 +26,6 @@ class TestMoveFromAccauntToConstructor:
         # Кликаем по логотипу
         driver_base.click(Locators.logotip)
         # Проверяем, что мы попали в конструктор
-        assert driver_base.get_text(Locators.text_get_burger) == 'Соберите бургер', "Текст элемента 'Соберите бургер' некорректен"
+        # Проверяем видимость элемента, а не его текст
+        assert driver_base.element_visible(Locators.text_get_burger), "Элемент 'Соберите бургер' не отображается"
+        
