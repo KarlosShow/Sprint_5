@@ -1,7 +1,4 @@
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/..')
-import time
+
 from pages.main_page import MainPage
 from pages.base_page import BasePage
 from locators import Locators
