@@ -52,8 +52,20 @@ class TestEnterFromAccaunt:
         driver_base.open(base_url)
         # Переходим к форме регистрации
         driver_base.click(Locators.text_personal_accaunt)  # кликаем после успешной проверки
-        assert driver_base.element_visible(Locators.text_checkin), "Кнопка регистрации не видна"
+        driver_base.element_visible(Locators.text_checkin)
         driver_base.click(Locators.text_checkin)  # переход к форме 
+        # Добавляем проверку видимости кнопки «Зарегистрироваться» — это подтвердит, что мы на форме регистрации
+        driver_base.element_visible(Locators.button_checkinn)
+        driver_base.click(Locators.t_button_checkin) # кликаем по тексту войти в форме регистрации
+        # Выполняем вход
+        driver_base.type(Locators.email_input, good_email)
+        driver_base.type(Locators.password_input, good_pass)
+        driver_base.click(Locators.button_login)
+        # Переходим в личный кабинет и проверяем элементы
+        driver_base.click(Locators.text_personal_accaunt)
+        driver_base.find(Locators.username_input)  # поиск для взаимодействия
+        # Проверяем имя пользователя
+        assert driver_base.get_attribute_value(Locators.username_input, "value") == good_name, "Имя пользователя не соответствует ожидаемому"
 
     def test_enter_by_button_of_recovery_password(self, driver):
         driver_base = MainPage(driver)

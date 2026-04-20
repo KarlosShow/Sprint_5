@@ -28,9 +28,7 @@ class Locators:
     rolls_active = (By.XPATH, "//div[contains(@class, 'tab') and contains(@class, 'current') and .//span[text()='Булки']]")  # активный таб с названием «Булки».
     sauces_active = (By.XPATH, "//div[contains(@class, 'tab') and contains(@class, 'current') and .//span[text()='Соусы']]") # 
     fillings_active = (By.XPATH, "//div[contains(@class, 'tab') and contains(@class, 'current') and .//span[text()='Начинки']]") # 
-    #rolls_active = (By.XPATH, "//div[contains(@class, 'current') and .//span[text()='Булки']]")  # активный таб с названием «Булки».
-    #sauces_active = (By.XPATH, "//div[contains(@class, 'current') and .//span[text()='Соусы']]") # 
-    #fillings_active = (By.XPATH, "//[contains(@class, 'current') and .//span[text()='Начинки']]") # 
+    
     displayed_username = (By.XPATH, "//input[@name='Name' and contains(@class, 'input__textfield-disabled')]")
     # поиск по классу
     # Локаторы для проверки активного состояния
